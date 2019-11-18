@@ -111,9 +111,12 @@ alias "gst"="git status"
 alias "gc"="git commit"
 alias "gpl"="git pull"
 alias "gps"="git push"
+alias "mca"="make clean all"
+alias "ga"="git add ."
+alias "gcm"="git commit -m "
+
 source /usr/share/nvm/init-nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export FZF_DEFAULT_COMMAND='ag -nocolor --ignore node_modules -g'
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$PATH"

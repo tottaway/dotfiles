@@ -11,6 +11,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-rooter'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 

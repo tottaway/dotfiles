@@ -257,7 +257,7 @@ exec --no-startup-id "compton -cC"
 exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
 exec --no-startup-id "sleep 2s && kalu"
-exec --no-startup-id sh ~/.fehbg
+exec --no-startup-id sh ~/scripts/.fehbg
 exec --no-startup-id "xrandr --output HDMI-1 --auto --above eDP-1"
 exec --no-startup-id "setxkbmap -option caps:swapescape"
 exec --no-startup-id "numlockx on"
