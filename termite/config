@@ -1,6 +1,6 @@
 [colors]
 # hard contrast: background = #1d2021
-background = rgb(38, 38, 38) 
+background = rgba(10, 10, 10, 0.85) 
 # soft contrast: background = #32302f
 foreground = #ebdbb2
 foreground_bold = #ebdbb2
