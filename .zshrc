@@ -114,6 +114,9 @@ alias "gps"="git push"
 alias "mca"="make clean all"
 alias "ga"="git add ."
 alias "gcm"="git commit -m "
+alias "juggle"="~/.local/bin/JugglingLab.sh"
+alias "se"="sudoedit"
+alias "pipe"="cpipes -c cc241d -c d79921 -c 458588 -c b16286 -c 689d6a -p 2 -m 120 -r 0.1"
 
 source /usr/share/nvm/init-nvm.sh
 

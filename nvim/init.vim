@@ -12,6 +12,7 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark = "hard"
 set background=dark
 
+
 " line numbers {{{1
 set nu rnu
 augroup numbertoggle
@@ -36,11 +37,24 @@ set wildmode=longest,list,full
 set wildmenu
 set colorcolumn=80
 
-" Coc configs
+" Coc configs {{{1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>": "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>": "\<S-Tab>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+nmap <M-n> <Plug>(coc-diagnostic-next)
+nmap <M-p> <Plug>(coc-diagnostic-prev)
+nmap <space>f <Plug>(coc-format-selected)
+nmap <space>F <Plug>(coc-format)
+nmap <space>D <Plug>(coc-declaration)
+nmap <space>d <Plug>(coc-definition)
+nmap <space>d <Plug>(coc-definition)
+nmap <space>i <Plug>(coc-implementation)
+nmap <space>u <Plug>(coc-references)
+nmap <space>re <Plug>(coc-refactor)
+nmap <space>rn <Plug>(coc-rename)
+nmap <space>c <Plug>(coc-fix-current)
+
 
 " ripgrep {{{1
 function! RgPreview(args, extra_args)
