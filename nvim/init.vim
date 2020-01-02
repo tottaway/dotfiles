@@ -73,6 +73,12 @@ command! -nargs=* RgPreview call RgPreview(<q-args>, '')
 command! -nargs=* RgPreviewHidden call RgPreviewHidden(<q-args>, '')
 nnoremap <leader>g RgPreviewHidden
 " remappings {{{1
+" remapping escape {{{2
+inoremap jk <esc>
+inoremap kj <esc>
+xnoremap jk <esc>
+xnoremap kj <esc>
+
 " Leader {{{2
 map <space> <leader>
 
