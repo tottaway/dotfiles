@@ -117,6 +117,19 @@ alias "gcm"="git commit -m "
 alias "juggle"="~/.local/bin/JugglingLab.sh"
 alias "se"="sudoedit"
 alias "pipe"="cpipes -c cc241d -c d79921 -c 458588 -c b16286 -c 689d6a -p 2 -m 120 -r 0.1"
+alias "la"="ls -a"
+alias "ll"="ls -l"
+alias "lla"="ls -la"
+
+# nvim terminal specific settings
+# taken from neev
+export EDITOR='nvim'
+export VISUAL='nvim'
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  alias e='nvr'
+  export VISUAL='nvr -cc split --remote-wait -c "set bufhidden=delete"'
+  export EDITOR="$VISUAL"
+fi
 
 source /usr/share/nvm/init-nvm.sh
 
