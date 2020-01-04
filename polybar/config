@@ -1,0 +1,156 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #bbb
+foreground-alt = #eee
+primary = #8aa4f0
+
+[bar/main_bar]
+width = 100%
+height = 27
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = ${colors.foreground}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = "Source Code Pro Semibold:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Solid:size=10;1"
+font-2 = "Font Awesome 5 Brands:size=10;"
+
+modules-left = ewmh
+modules-center = date
+modules-right = battery pulseaudio wlan
+
+tray-position = right
+
+cursor-click = pointer
+
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid%
+
+format-disconnected =
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %A %D"
+
+time = %I:%M%p
+
+/* format-prefix =  */
+/* format-prefix-foreground = ${colors.foreground-alt} */
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume> <bar-volume>
+label-volume = 
+label-volume-foreground = ${colors.foreground-alt}
+
+label-muted =  muted
+label-muted-foreground = ${colors.foreground-alt}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.foreground-alt}
+bar-volume-foreground-1 = ${colors.foreground-alt}
+bar-volume-foreground-2 = ${colors.foreground-alt}
+bar-volume-foreground-3 = ${colors.foreground-alt}
+bar-volume-foreground-4 = ${colors.foreground-alt}
+bar-volume-foreground-5 = ${colors.foreground-alt}
+bar-volume-foreground-6 = ${colors.foreground-alt}
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.background-alt}
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT1
+adapter = ADP1
+
+poll-interval = 5
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%%
+
+label-discharging = %percentage%%
+
+label-full = Fully charged
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+bar-capacity-width = 10
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground-alt}
+
+[module/ewmh]
+type = internal/xworkspaces
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
+
+format = <label-state>
+format-background = ${colors.background}
+
+label-visible = %name%
+
+label-empty = %name%
+label-empty-padding = 1
+
+label-active = %name%
+label-active-foreground = ${colors.background}
+label-active-background = ${colors.primary}
+label-active-padding = 1
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

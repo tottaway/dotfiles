@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Declare the list of plugins.
 Plug 'morhetz/gruvbox'
+Plug 'niklas-8/vim-darkspace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'

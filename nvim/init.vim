@@ -8,9 +8,9 @@ set conceallevel=1
 let g:tex_conceal='abdmg'
 
 " colorscheme {{{1
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = "hard"
 set background=dark
+set termguicolors
+colorscheme darkspace
 
 
 " line numbers {{{1
@@ -76,8 +76,6 @@ nnoremap <leader>g RgPreviewHidden
 " remapping escape {{{2
 inoremap jk <esc>
 inoremap kj <esc>
-xnoremap jk <esc>
-xnoremap kj <esc>
 
 " Leader {{{2
 map <space> <leader>
