@@ -1,0 +1,6 @@
+#start of window title bars & borders section
+# class                 border|backgr|text|indicator|child_border
+client.focused          #82AAFF #82AAFF #222222 #ffffff #ffffff
+client.focused_inactive #82AAFF #82AAFF #222222 #ffffff #ffffff
+client.unfocused        #222222 #222222 #bbbbbb #ffffff #ffffff
+client.background       #000000
