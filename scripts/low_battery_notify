@@ -1,0 +1,36 @@
+#!/bin/bash
+
+battery_life_over_threshold=true
+very_low=true
+while true; do
+    BATTINFO=`acpi -b | grep -Eo 'Discharging.*remaining'`
+    if [[ ! -z "$BATTINFO" && `echo $BATTINFO  | cut -f 2 -d " " | grep -Eo "[0-9]+"` -lt 15 ]] ; then
+        # Low battery notification at 15%
+        if [ "$battery_life_over_threshold" = true ]; then
+            xcalib -red 1.0 30.0 100.0 
+            sleep 0.25 
+            xcalib -c 
+            notify-send -u critical -t 10000 "LOW BATTERY" "$(echo $BATTINFO | grep -Eo '[0-9]+%.*[0-9]')"
+        fi
+
+        # Turn screen all red at 5%
+        if [[ ! -z "$BATTINFO" && `echo $BATTINFO  | cut -f 2 -d " " | grep -Eo "[0-9]+"` -lt 5 ]] ; then
+            xcalib -red 1.0 30.0 100.0 -a
+            very_low=true
+        elif [[ -z "$BATTINFO" || `echo $BATTINFO  | cut -f 2 -d " " | grep -Eo "[0-9]+"` -gt 6 ]] ; then
+            if [ "$very_low" = true ]; then
+                xcalib -c
+            fi
+            very_low=false
+        fi
+
+        battery_life_over_threshold=false
+    else
+        if [[ -z "$BATTINFO" || `echo $BATTINFO  | cut -f 2 -d " " | grep -Eo "[0-9]+"` -gt 16 ]] ; then
+            battery_life_over_threshold=true
+            xcalib -c
+        fi
+    fi
+
+    sleep 10
+done

@@ -1,0 +1,1 @@
+xwinwrap -ov -ni -fs -- mpv -vo x11 -wid WID --keepaspect=no --loop ~/wallpapers/waterfall.gif
