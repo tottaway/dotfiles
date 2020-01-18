@@ -6,17 +6,17 @@ window#main-window {
 	--color-* vars.
 	*/
 
-	--color-fg   : #d5d8d6;
-	--color-bg   : #000000;
-	--color-0    : #e96356;
+	--color-fg   : #f2e5bc;
+	--color-bg   : #1d2021;
+	--color-0    : #cc241d;
 	--color-1    : #d0d01e;
-	--color-2    : #8aa4f0;
-	--color-3    : #e96356;
-	--color-4    : #8aa4f0;
-	--color-5    : #8aa4f0;
-	--color-tab-active-text : #000000;
-	--color-tab-pinned-text : #000000;
-	--color-tab-hover-text  : #d5d8d6;
+	--color-2    : #458588;
+	--color-3    : #cc241d;
+	--color-4    : #458588;
+	--color-5    : #458588;
+	--color-tab-active-text : var(--color-fg);
+	--color-tab-pinned-text : var(--color-fg);
+	--color-tab-hover-text  : var(--color-fg);
 
 	--color-tab-active-end       : var(--color-4);
 	--color-tab-active-start     : var(--color-2);
@@ -253,15 +253,15 @@ hbox#urlbar[focused=true] {
 }
 
 /* This centers the reduces the width of the urlbar list */
-.urlbarView:not(.megabar) {
-	box-shadow: none !important;
-	background-color: var(--color-bg) !important;
+/* .urlbarView:not(.megabar) { */
+/* 	box-shadow: none !important; */
+/* 	background-color: var(--color-fg) !important; */
 
-	width: var(--urlbar-list-width) !important;
-	margin-left: calc(var(--urlbar-list-width) / 2) !important;
-	border-radius: 0 8px 8px !important;
-	box-shadow: 0px 0px 40px rgba(0, 0, 0, 25%) !important;
-}
+/* 	width: var(--urlbar-list-width) !important; */
+/* 	margin-left: calc(var(--urlbar-list-width) / 2) !important; */
+/* 	border-radius: 0 8px 8px !important; */
+/* 	box-shadow: 0px 0px 40px rgba(0, 0, 0, 25%) !important; */
+/* } */
 
 .urlbarView-favicon {
 	display: none !important;

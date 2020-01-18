@@ -86,6 +86,7 @@ tnoremap <a-r> <c-\><c-n>:source ~/.config/nvim/init.vim<CR>
 " Fix default behavior {{{2
 map Y y$
 nnoremap U <C-r>
+xnoremap p pgvy
 
 "macros {{{2
 xnoremap @ :<c-u>call ExecuteMacroOverVisualRange()<cr>

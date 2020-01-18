@@ -1,9 +1,9 @@
 [colors]
-background = #222
-background-alt = #444
-foreground = #bbb
-foreground-alt = #eee
-primary = #8aa4f0
+background = #1d2021
+background-alt = #282828
+foreground = #ebdbb2
+foreground-alt = #ebdbb2
+primary = #458588
 
 [bar/main_bar]
 width = 100%

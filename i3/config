@@ -220,9 +220,29 @@ exec --no-startup-id "setxkbmap -option caps:swapescape"
 exec --no-startup-id "numlockx on"
 exec --no-startup-id "spotifyd"
 # exec --no-startup-id "sh scripts/low_battery_notify"
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
 #start of window title bars & borders section
+
+# green gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          #82AAFF #82AAFF #222222 #ffffff #ffffff
-client.focused_inactive #82AAFF #82AAFF #222222 #ffffff #ffffff
-client.unfocused        #222222 #222222 #bbbbbb #ffffff #ffffff
-client.background       #000000
+#client.focused          $green $green $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $white $red $red
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red

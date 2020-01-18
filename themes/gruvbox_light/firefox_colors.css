@@ -6,6 +6,6 @@
 	--color-3    : #458588;
 	--color-4    : #cc241d;
 	--color-5    : #cc241d;
-	--color-tab-active-text : var(--color-fg);
+	--color-tab-active-text : var(--color-bg);
 	--color-tab-pinned-text : var(--color-fg);
-	--color-tab-hover-text  : var(--color-fg);
+	--color-tab-hover-text  : var(--color-bg);

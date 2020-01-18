@@ -243,15 +243,15 @@ hbox#urlbar[focused=true] {
 }
 
 /* This centers the reduces the width of the urlbar list */
-.urlbarView:not(.megabar) {
-	box-shadow: none !important;
-	background-color: var(--color-bg) !important;
+/* .urlbarView:not(.megabar) { */
+/* 	box-shadow: none !important; */
+/* 	background-color: var(--color-fg) !important; */
 
-	width: var(--urlbar-list-width) !important;
-	margin-left: calc(var(--urlbar-list-width) / 2) !important;
-	border-radius: 0 8px 8px !important;
-	box-shadow: 0px 0px 40px rgba(0, 0, 0, 25%) !important;
-}
+/* 	width: var(--urlbar-list-width) !important; */
+/* 	margin-left: calc(var(--urlbar-list-width) / 2) !important; */
+/* 	border-radius: 0 8px 8px !important; */
+/* 	box-shadow: 0px 0px 40px rgba(0, 0, 0, 25%) !important; */
+/* } */
 
 .urlbarView-favicon {
 	display: none !important;
