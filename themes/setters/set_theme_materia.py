@@ -9,7 +9,10 @@ class MateriaThemeSetter(ThemeSetter):
             self.theme_dir + "/polybar_colors",
             self.common_dir + "/polybar_common"
         ]
-        self.nvim_inputs = [self.theme_dir + "/nvim_theme.vim"]
+        self.nvim_inputs = [
+            self.common_dir + "/theme.vim",
+            self.theme_dir + "/nvim_theme.vim"
+        ]
         self.rofi_inputs = [self.theme_dir + "/rofi_config"]
         self.alacritty_inputs = [
             self.common_dir + "/common_alacritty.yml",

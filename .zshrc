@@ -117,9 +117,14 @@ alias "gcm"="git commit -m "
 alias "juggle"="~/.local/bin/JugglingLab.sh"
 alias "se"="sudoedit"
 alias "pipe"="cpipes -c cc241d -c d79921 -c 458588 -c b16286 -c 689d6a -p 2 -m 120 -r 0.1"
+alias "l"="ls"
 alias "la"="ls -a"
 alias "ll"="ls -l"
 alias "lla"="ls -la"
+alias "cgo"="cargo"
+alias "cgr"="cargo run"
+alias "cgb"="cargo build"
+alias "cgc"="cargo build"
 
 # nvim terminal specific settings
 # taken from neev
@@ -135,4 +140,4 @@ source /usr/share/nvm/init-nvm.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/dotfiles/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/dotfiles/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"

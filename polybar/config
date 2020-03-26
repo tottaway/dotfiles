@@ -28,7 +28,7 @@ font-2 = "Font Awesome 5 Brands:size=10;"
 
 modules-left = ewmh
 modules-center = date
-modules-right = battery pulseaudio wlan
+modules-right = battery xbacklight pulseaudio wlan
 
 tray-position = right
 
@@ -50,6 +50,29 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = " "
+label-foreground = ${colors.foreground-alt}
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = ${colors.foreground}
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = ${colors.foreground-alt}
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.background-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
 
 [module/date]
 type = internal/date

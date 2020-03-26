@@ -4,6 +4,7 @@ source ~/.config/nvim/plug.vim
 " colorscheme {{{1
 source ~/.config/nvim/theme.vim
 
+
 " latex {{{1
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -36,7 +37,6 @@ set undofile
 set wildmode=longest,list,full
 set wildmenu
 set colorcolumn=80
-
 " Coc configs {{{1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>": "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>": "\<S-Tab>"
@@ -79,6 +79,12 @@ inoremap kj <esc>
 
 " Leader {{{2
 map <space> <leader>
+
+
+" snippets {{{2
+let g:UltiSnipsExpandTrigger="<M-e>"
+let g:UltiSnipsJumpForwardTrigger="<M-;>"
+let g:UltiSnipsJumpBackwardTrigger="<M-,>"
 
 " Reloading vim {{{2
 nnoremap <a-r> :source ~/.config/nvim/init.vim<CR>
@@ -259,6 +265,41 @@ tnoremap <a-h> <c-\><c-n><c-w>h
 tnoremap <a-j> <c-\><c-n><c-w>j
 tnoremap <a-k> <c-\><c-n><c-w>k
 tnoremap <a-l> <c-\><c-n><c-w>l
+
+" From neev
+" Window remapping
+noremap <up>    <C-W>+
+noremap <down>  <C-W>-
+noremap <left>  3<C-W>>
+noremap <right> 3<C-W><
+nnoremap <M-=> <C-w>=
+nnoremap <M--> <C-w>_
+nnoremap <M-\> <C-w><bar>
+
+" Window moving
+nnoremap <M-H> <C-w>H
+nnoremap <M-J> <C-w>J
+nnoremap <M-K> <C-w>K
+nnoremap <M-L> <C-w>L
+
+" Coc bindings
+nmap <M-n> <Plug>(coc-diagnostic-next)
+nmap <M-p> <Plug>(coc-diagnostic-prev)
+nmap <space>f <Plug>(coc-format-selected)
+nmap <space>F <Plug>(coc-format)
+nmap <space>D <Plug>(coc-declaration)
+nmap <space>d <Plug>(coc-definition)
+nmap <space>d <Plug>(coc-definition)
+nmap <space>i <Plug>(coc-implementation)
+nmap <space>u <Plug>(coc-references)
+nmap <space>re <Plug>(coc-refactor)
+nmap <space>rn <Plug>(coc-rename)
+nmap <space>c <Plug>(coc-fix-current)
+
+nnoremap <silent> <space>K <Cmd>call CocAction('doHover')<CR>
+xnoremap <silent> <space>K <Cmd>call CocAction('doHover')<CR>
+nnoremap <silent> <K> :call doHover()<CR>
+xnoremap <silent> <K> :call doHover()<CR>
 
 " open up buffer selection {{{2
 noremap <leader>n <c-\><c-n>:Buffer<CR>

@@ -1,9 +1,9 @@
 from set_theme_common import ThemeSetter
 
-class GruvboxDarkThemeSetter(ThemeSetter):
+class SolarizedLightThemeSetter(ThemeSetter):
     def __init__(self, *args, **kw):
         super().__init__(*args, **kw)
-        self.theme_dir = self.themes_dir + "/gruvbox_dark"
+        self.theme_dir = self.themes_dir + "/solarized_light"
         self.common_dir = self.themes_dir + "/common"
         self.polybar_inputs = [
             self.theme_dir + "/polybar_colors",
@@ -29,5 +29,4 @@ class GruvboxDarkThemeSetter(ThemeSetter):
             "content_template": self.common_dir + "/firefox_common_content.css",
             "content_colors": self.theme_dir + "/firefox_content_colors.css"
         }
-
 
