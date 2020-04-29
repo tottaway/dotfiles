@@ -125,6 +125,7 @@ alias "cgo"="cargo"
 alias "cgr"="cargo run"
 alias "cgb"="cargo build"
 alias "cgc"="cargo build"
+alias "ssh"="TERM=xterm-256color \ssh"
 
 # nvim terminal specific settings
 # taken from neev

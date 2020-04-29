@@ -71,7 +71,7 @@ endfunction
 
 command! -nargs=* RgPreview call RgPreview(<q-args>, '')
 command! -nargs=* RgPreviewHidden call RgPreviewHidden(<q-args>, '')
-nnoremap <leader>g RgPreviewHidden
+" nnoremap <leader>g RgPreviewHidden
 " remappings {{{1
 " remapping escape {{{2
 inoremap jk <esc>
@@ -244,6 +244,8 @@ call MapWinCmd("w", "enew <bar> setlocal bufhidden=hide nobuflisted " .
       \ "buftype=nofile")
 call MapWinCmd("f", "Files")
 call MapWinCmd("b", "Buffers")
+call MapWinCmd("r", "RgPreview")
+call MapWinCmd("R", "RgPreviewHidden")
 
 " moving between windows
 nnoremap <a-h> <c-\><c-n><c-w>h
