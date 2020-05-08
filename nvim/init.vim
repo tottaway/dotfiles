@@ -12,8 +12,6 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
-
-
 " line numbers {{{1
 set nu rnu
 augroup numbertoggle
@@ -37,6 +35,7 @@ set undofile
 set wildmode=longest,list,full
 set wildmenu
 set colorcolumn=80
+
 " Coc configs {{{1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>": "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>": "\<S-Tab>"
@@ -72,29 +71,22 @@ endfunction
 command! -nargs=* RgPreview call RgPreview(<q-args>, '')
 command! -nargs=* RgPreviewHidden call RgPreviewHidden(<q-args>, '')
 " nnoremap <leader>g RgPreviewHidden
-" remappings {{{1
-" remapping escape {{{2
+" escape chord {{{1
 inoremap jk <esc>
 inoremap kj <esc>
 
-" Leader {{{2
+" Leader {{{1
 map <space> <leader>
 
-
-" snippets {{{2
-let g:UltiSnipsExpandTrigger="<M-e>"
-let g:UltiSnipsJumpForwardTrigger="<M-;>"
-let g:UltiSnipsJumpBackwardTrigger="<M-,>"
-
-" Reloading vim {{{2
+" Resource init.vim {{{1
 nnoremap <a-r> :source ~/.config/nvim/init.vim<CR>
 tnoremap <a-r> <c-\><c-n>:source ~/.config/nvim/init.vim<CR>
-" Fix default behavior {{{2
+" Fix default behavior {{{1
 map Y y$
 nnoremap U <C-r>
 xnoremap p pgvy
 
-"macros {{{2
+"make . repeatable macros {{{1
 xnoremap @ :<c-u>call ExecuteMacroOverVisualRange()<cr>
 
 function! ExecuteMacroOverVisualRange()
@@ -102,7 +94,7 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal!  @".nr2char(getchar())
 endfunction
 
-" repeatable macros {{{3
+" repeatable macros
 " When . repeats g@, repeat the last macro.
 function! AtRepeat(_)
     " If no count is supplied use the one saved in s:atcount.
@@ -173,36 +165,48 @@ endfunction
 
 nmap <expr> q QStart()
 
-" Movement behavior {{{2
+" Movement behavior {{{1
 nnoremap j gj
 nnoremap gj j
 nnoremap k gk
 nnoremap gk k
 
-" Window movements {{{2
-function! FloatingFullscreen()
+" Window movements {{{1
+" Files with preview
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
-  "full size
-  let height = &lines - 1 - &cmdheight
-  let width = &columns
+  call setbufvar(buf, '&signcolumn', 'no')
 
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': 0,
-        \ 'col': 0,
-        \ 'width': width,
-        \ 'height': height
-        \ }
+  let height = &lines - 15
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let row = float2nr((&lines - height) /2)
+  let col = float2nr((&columns - width) / 2)
 
-  " not sure why before and after is required
-  set winhighlight=NormalFloat:Normal
-  let win_id = nvim_open_win(buf, v:true, opts)
-  set winhighlight=NormalFloat:Normal
+   let opts = {
+         \ 'relative': 'editor',
+         \ 'row': row,
+         \ 'col': col,
+         \ 'width': width,
+         \ 'height': height
+         \ }
 
-  return win_id
+  call nvim_open_win(buf, v:true, opts)
+  setlocal
+        \ buftype=nofile
+        \ nobuflisted
+        \ bufhidden=hide
+        \ nonumber
+        \ winblend=0
+        \ pumblend=0
+        \ norelativenumber
+        \ signcolumn=no
 endfunction
 
-let g:fzf_layout = { 'window': 'call FloatingFullscreen()' }
+
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! MapWinCmd(key, command, ...)
   if a:0 && a:1
@@ -220,7 +224,7 @@ function! MapWinCmd(key, command, ...)
         \ a:command.suffix
   execute "nnoremap <space>l".a:key." :<c-u>belowright vnew <bar>".
         \ a:command.suffix
-  execute "nnoremap <space>;".a:key." :<c-u>call FloatingFullscreen()<cr>:".
+  execute "nnoremap <space>;".a:key." :<c-u>call FloatingFZF()<cr>:".
         \ a:command.suffix
   execute "nnoremap <space>,".a:key." :<c-u>tabnew <bar>".
         \ a:command.suffix
@@ -284,7 +288,7 @@ nnoremap <M-J> <C-w>J
 nnoremap <M-K> <C-w>K
 nnoremap <M-L> <C-w>L
 
-" Coc bindings
+" Coc bindings {{{1
 nmap <M-n> <Plug>(coc-diagnostic-next)
 nmap <M-p> <Plug>(coc-diagnostic-prev)
 nmap <space>f <Plug>(coc-format-selected)
@@ -303,14 +307,11 @@ xnoremap <silent> <space>K <Cmd>call CocAction('doHover')<CR>
 nnoremap <silent> <K> :call doHover()<CR>
 xnoremap <silent> <K> :call doHover()<CR>
 
-" open up buffer selection {{{2
-noremap <leader>n <c-\><c-n>:Buffer<CR>
-tnoremap <leader>n <c-\><c-n>:Buffer<CR>
 
-" hard escape {{{2
+" hard escape {{{1
 tnoremap <c-space> <c-\><c-n>
 
-"fix spelling mistake {{{2
+"fix spelling mistake {{{1
 inoremap <c-f> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 function! FixSpellingMistake() abort
@@ -321,6 +322,5 @@ endfunction
 
 nnoremap <c-f> <Cmd>call FixSpellingMistake()<cr>
 
-"}}}
 "}}}
 " vim: set fdm=marker:
