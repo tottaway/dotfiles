@@ -126,6 +126,8 @@ alias "cgr"="cargo run"
 alias "cgb"="cargo build"
 alias "cgc"="cargo build"
 alias "ssh"="TERM=xterm-256color \ssh"
+alias "ch"="bluetoothctl power on;bluetoothctl connect FC:58:FA:42:17:5C"
+alias "dh"="bluetoothctl disconnect FC:58:FA:42:17:5C"
 
 # nvim terminal specific settings
 # taken from neev
