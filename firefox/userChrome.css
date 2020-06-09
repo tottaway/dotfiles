@@ -26,12 +26,12 @@
 	--color-tab-normal-start     : var(--color-bg);
 	--color-tab-pinned-active    : var(--color-2);
 	--color-tab-pinned-normal    : var(--color-5);
-	--color-urlbar-buttons-bg    : var(--background);
-	--color-urlbar-text          : var(--color-5);
+	--color-urlbar-buttons-bg    : var(--color-bg);
+	--color-urlbar-text          : var(--color-fg);
 
 	/* Easy way to tweak most params */
 	--gap-between-tabs                   : 10px;
-	--margin-around-urlbar               : 9px;
+	--margin-around-urlbar               : 0px;
 	--margin-before-back-button          : 9px;
 	--padding-around-searchengine-opts   : 10px;
 	--pinned-tab-favicon-dim             : 27px;
@@ -59,7 +59,8 @@
 
 	--autocomplete-popup-background: var(--color-bg) !important;
 	--autocomplete-popup-color: var(--color-fg) !important;
-	--autocomplete-popup-highlight-background: var(--color-bg) !important;
+	--autocomplete-popup-highlight-background: var(--color-fg) !important;
+	--autocomplete-popup-highlight-color: var(--color-bg) !important;
 
     /* Thomas removed because unused */
 	/* --backbutton-active-background: var(--color-fg) !important; */
@@ -146,7 +147,7 @@ hbox#browser {
 
 #urlbar-container {
 	margin: var(--urlbar-container-margin) !important;
-
+    background-color: var(--color-bg) !important;
 }
 .toolbarbutton-1 {
 	color: inherit !important;
@@ -212,6 +213,7 @@ input#urlbar-input {
 	font-weight: var(--urlbar-text-weight) !important;
 	font-family: var(--urlbar-text-font) !important;
 	font-size: var(--urlbar-text-size) !important;
+    background-color: var(--color-bg) !important;
 }
 
 hbox#urlbar[focused=true] {
@@ -222,7 +224,8 @@ hbox#urlbar[focused=true] {
 #urlbar.megabar > #urlbar-background,
 #searchbar {
 	border: none !important;
-	box-shadow: none !important;
+	box-shadow: 0px 0px 1px 1px var(--color-fg) !important;
+    background-color: var(--color-bg) !important;
 }
 
 .urlbar-history-dropmarker,
@@ -232,10 +235,11 @@ hbox#urlbar[focused=true] {
 }
 
 #urlbar {
-	background-color: var(--color-fg);
-	background: none !important;
+	background-color: var(--color-bg);
+	/* background: none !important; */
 	border: none !important;
-	margin: var(--margin-around-urlbar) !important;
+	margin-top:  5px !important;
+	margin-bottom:  25px !important;
 }
 
 .urlbar-one-offs-header-label {
@@ -271,7 +275,7 @@ hbox#urlbar[focused=true] {
 }
 
 .urlbarView-row[selected] {
-	background: var(--color-5) !important;
+	background: var(--color-fg) !important;
 	color: var(--color-bg) !important;
 	fill-opacity: 1 !important;
 }
