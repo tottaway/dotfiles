@@ -22,6 +22,6 @@ set $darkgray #1d2021
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
 client.focused          $fg $red $bg $purple $darkgray
-client.focused_inactive $red $red $bg $purple $darkgray
+client.focused_inactive $bg $bg $fg $purple $darkgray
 client.unfocused        $bg $bg $fg $purple $darkgray
 client.urgent           $red $red $white $red $red

@@ -1,26 +1,14 @@
 {
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
-    "python.jediEnabled": false,
     "python.linting.pylintUseMinimalCheckers": false,
+   "coc.preferences.formatOnSaveFiletypes": ["rust"],
     "python.formatting.provider": "yapf",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintPath": "~/.local/bin/pylint",
     "python.linting.pylintArgs": [ "--disable=C,R" ],
     "diagnostic.displayByAle": false,
-    "coc.preferences.colorSupport": true,
-    "highlight.colors.enable": false,
-    "highlight.document.enable": true,
-    "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.removedSign.hlGroup": "GitGutterDelete",
-    "git.topRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "rust.clippy_preference": "on",
-    "rust-client.channel": "stable",
-    "rust.unstable_features": true,
-    "rust.cfg_test": true,
     "suggest.completionItemKindLabels": {
         "function": "\uf794",
         "method": "\uf6a6",
@@ -48,6 +36,22 @@
         "typeParameter": "\uf278",
         "default": "\uf29c"
     },
+  "rust-analyzer.enable": true,
+  "rust-analyzer.rustfmt.overrideCommand": [
+          "rustup",
+          "run",
+          "nightly",
+          "--",
+          "rustfmt",
+          "--"
+      ],
+  "rust-analyzer.cargo.allFeatures": true,
+    "coc.preferences.rootPatterns": [
+        ".git",
+        ".hg",
+        ".projections.json",
+        ".root"
+    ],
     "languageserver": {
         "golang": {
             "command": "gopls",

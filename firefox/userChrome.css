@@ -6,17 +6,17 @@
 	--color-* vars.
 	*/
 
-	--color-fg   : #f2e5bc;
-	--color-bg   : #1d2021;
-	--color-0    : #cc241d;
+	--color-fg   : #3c3836;
+	--color-bg   : #f2e5bc;
+	--color-0    : #458588;
 	--color-1    : #d0d01e;
-	--color-2    : #458588;
-	--color-3    : #cc241d;
-	--color-4    : #458588;
-	--color-5    : #458588;
-	--color-tab-active-text : var(--color-fg);
+	--color-2    : #cc241d;
+	--color-3    : #458588;
+	--color-4    : #cc241d;
+	--color-5    : #cc241d;
+	--color-tab-active-text : var(--color-bg);
 	--color-tab-pinned-text : var(--color-fg);
-	--color-tab-hover-text  : var(--color-fg);
+	--color-tab-hover-text  : var(--color-bg);
 
 	--color-tab-active-end       : var(--color-4);
 	--color-tab-active-start     : var(--color-2);

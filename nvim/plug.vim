@@ -14,9 +14,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-rooter'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'itchyny/lightline.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
+Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-autoformat'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()

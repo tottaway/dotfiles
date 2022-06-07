@@ -220,9 +220,10 @@ exec --no-startup-id "numlockx on"
 exec --no-startup-id "spotifyd"
 # exec --no-startup-id "sh scripts/low_battery_notify"
 
-gaps inner 30
+# gaps inner 20
 # set primary gruvbox colorscheme colors
-set $bg #282828
+set $bg #ebdbb2
+set $fg #1d2021
 set $red #cc241d
 set $green #98971a
 set $yellow #d79921
@@ -243,7 +244,7 @@ set $darkgray #1d2021
 
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray #ebdbb2 $purple $darkgray
-client.unfocused        $darkgray $darkgray #ebdbb2 yellow $purple $darkgray
+client.focused          $fg $red $bg $purple $darkgray
+client.focused_inactive $bg $bg $fg $purple $darkgray
+client.unfocused        $bg $bg $fg $purple $darkgray
 client.urgent           $red $red $white $red $red

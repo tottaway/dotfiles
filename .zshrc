@@ -107,27 +107,32 @@ alias "sp"="systemctl suspend"
 alias "re"="reboot"
 alias "ga"="git add"
 alias "gaa"="git add --all"
-alias "gst"="git status"
+alias "gap"="git add --patch"
+alias "gs"="git status"
 alias "gc"="git commit"
 alias "gpl"="git pull"
 alias "gps"="git push"
 alias "mca"="make clean all"
 alias "ga"="git add ."
 alias "gcm"="git commit -m "
+alias "gdc"="git diff --cached "
 alias "juggle"="~/.local/bin/JugglingLab.sh"
 alias "se"="sudoedit"
 alias "pipe"="cpipes -c cc241d -c d79921 -c 458588 -c b16286 -c 689d6a -p 2 -m 120 -r 0.1"
-alias "l"="ls"
-alias "la"="ls -a"
-alias "ll"="ls -l"
+alias "l"="lsd"
+alias "la"="lsd -a"
+alias "ll"="lsd -l"
 alias "lla"="ls -la"
 alias "cgo"="cargo"
 alias "cgr"="cargo run"
 alias "cgb"="cargo build"
 alias "cgc"="cargo build"
 alias "ssh"="TERM=xterm-256color \ssh"
-alias "ch"="bluetoothctl power on;bluetoothctl connect FC:58:FA:42:17:5C"
-alias "dh"="bluetoothctl disconnect FC:58:FA:42:17:5C"
+alias "ch"="bluetoothctl power on;bluetoothctl connect 70:BF:92:20:BB:BF"
+alias "dh"="bluetoothctl disconnect 70:BF:92:20:BB:BF"
+alias "caps"="setxkbmap -option caps:swapescape"
+alias "no-caps"="setxkbmap -option caps:swapescape"
+alias "c"="clear"
 
 # nvim terminal specific settings
 # taken from neev
@@ -141,6 +146,9 @@ fi
 
 source /usr/share/nvm/init-nvm.sh
 
+export FZF_DEFAULT_COMMAND='rg --files'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/dotfiles/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/dotfiles/scripts:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.cargo/bin:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/ardupilot/Tools/autotest:/usr/lib/ccache:$HOME/gcc-arm/gcc-arm-none-eabi-6-2017-q2-update/bin:$PATH"
+# export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/thomas/wlkata/Wlkatastudio"
