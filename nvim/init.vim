@@ -27,9 +27,9 @@ set termguicolors
 set ruler
 set hlsearch
 set incsearch
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set wrap linebreak nolist
 set undofile
@@ -40,12 +40,13 @@ set colorcolumn=80
 " Coc configs {{{1
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>": "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>": "\<S-Tab>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+set statusline+=%F
 nmap <M-n> <Plug>(coc-diagnostic-next)
 nmap <M-p> <Plug>(coc-diagnostic-prev)
-nmap <space>f <Plug>(coc-format-selected)
-nmap <space>F <Plug>(coc-format)
+nmap <space>F <Plug>(coc-format-selected)
+nmap <space>f <Plug>(coc-format)
 nmap <space>D <Plug>(coc-declaration)
 nmap <space>d <Plug>(coc-definition)
 nmap <space>d <Plug>(coc-definition)
@@ -215,7 +216,7 @@ function! MapWinCmd(key, command, ...)
         \ a:command.suffix
   execute "nnoremap <space>;".a:key." :<c-u>call FloatingFullscreen()<cr>:".
         \ a:command.suffix
-  execute "nnoremap <space>,".a:key." :<c-u>tabnew <bar>".
+  execute "nnoremap <space>,".a:key." :<c-u>tabne0 <bar>".
         \ a:command.suffix
   execute "nnoremap <space>.".a:key." :<c-u>".
         \ a:command.suffix
@@ -235,29 +236,36 @@ call MapWinCmd("t", "terminal")
 call MapWinCmd("e", " e ", 1)
 call MapWinCmd("w", "enew <bar> setlocal bufhidden=hide nobuflisted " .
       \ "buftype=nofile")
-call MapWinCmd("f", "Files")
+call MapWinCmd("f", "GFiles")
+call MapWinCmd("r", "RgPreview", 1)
+call MapWinCmd("R", "RgPreviewHidden", 1)
 call MapWinCmd("b", "Buffers")
 
 " moving between windows
-nnoremap <a-h> <c-\><c-n><c-w>h
-nnoremap <a-j> <c-\><c-n><c-w>j
-nnoremap <a-k> <c-\><c-n><c-w>k
-nnoremap <a-l> <c-\><c-n><c-w>l
+nnoremap <c-h> <c-\><c-n><c-w>h
+nnoremap <c-j> <c-\><c-n><c-w>j
+nnoremap <c-k> <c-\><c-n><c-w>k
+nnoremap <c-l> <c-\><c-n><c-w>l
 
-xnoremap <a-h> <c-\><c-n><c-w>h
-xnoremap <a-j> <c-\><c-n><c-w>j
-xnoremap <a-k> <c-\><c-n><c-w>k
-xnoremap <a-l> <c-\><c-n><c-w>l
+nnoremap <Left> <C-w><
+nnoremap <Up> <C-w>+
+nnoremap <Down> <C-w>-
+nnoremap <Right> <C-w>>
 
-inoremap <a-h> <c-\><c-n><c-w>h
-inoremap <a-j> <c-\><c-n><c-w>j
-inoremap <a-k> <c-\><c-n><c-w>k
-inoremap <a-l> <c-\><c-n><c-w>l
+xnoremap <c-h> <c-\><c-n><c-w>h
+xnoremap <c-j> <c-\><c-n><c-w>j
+xnoremap <c-k> <c-\><c-n><c-w>k
+xnoremap <c-l> <c-\><c-n><c-w>l
 
-tnoremap <a-h> <c-\><c-n><c-w>h
-tnoremap <a-j> <c-\><c-n><c-w>j
-tnoremap <a-k> <c-\><c-n><c-w>k
-tnoremap <a-l> <c-\><c-n><c-w>l
+inoremap <c-h> <c-\><c-n><c-w>h
+inoremap <c-j> <c-\><c-n><c-w>j
+inoremap <c-k> <c-\><c-n><c-w>k
+inoremap <c-l> <c-\><c-n><c-w>l
+
+tnoremap <c-h> <c-\><c-n><c-w>h
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
+tnoremap <c-l> <c-\><c-n><c-w>l
 
 " open up buffer selection {{{2
 noremap <leader>n <c-\><c-n>:Buffer<CR>
